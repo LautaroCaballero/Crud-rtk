@@ -1,19 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
-  {
-    id: '1',
-    title: 'task 1',
-    description: 'Task 1 description',
-    completed: false
-  },
-  {
-    id: '2',
-    title: 'task 2',
-    description: 'Task 2 description',
-    completed: false
-  }
-]
+// const initialState = [
+// ]
+
+const localData = JSON.parse(localStorage.getItem('task-list'))
+// const initialState = 
+// if (localData === null){
+//   initialState = []
+// }else {
+//   initialState = localData
+// }
+
+let initialState = (localData ? localData : [])
 
 export const taskSlice = createSlice({
   name: 'tasks',
@@ -21,11 +19,15 @@ export const taskSlice = createSlice({
   reducers: {
     addTask: (state, action) => {
         state.push(action.payload)
+        
+       
+        localStorage.setItem('task-list', JSON.stringify(state))
     },
     deleteTask: (state, action) => {
        const taskFoundDelete = state.find((task) => task.id === action.payload)
        if (taskFoundDelete) {
         state.splice(state.indexOf(taskFoundDelete), 1)
+        localStorage.setItem('task-list', JSON.stringify(state))
        }
     },
     editTask: (state, action) => {
@@ -34,6 +36,7 @@ export const taskSlice = createSlice({
         if(taskFoundEdit) {
           taskFoundEdit.title = title
           taskFoundEdit.description = description
+          localStorage.setItem('task-list', JSON.stringify(state))
         }
     }
   }
