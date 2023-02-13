@@ -6,8 +6,8 @@ export default function Header() {
   const tasks = useSelector((state) => state.tasks);
 
   return (
-    <div>
-      <div className="flex justify-between items-center py-4">
+    <div >
+      <div className="flex justify-around pt-4">
         <h1>You have {tasks.length} tasks!</h1>
         <Link
           to="/add"
@@ -16,8 +16,6 @@ export default function Header() {
           Add task
         </Link>
       </div>
-
-      <Outlet />
     </div>
   );
 }
