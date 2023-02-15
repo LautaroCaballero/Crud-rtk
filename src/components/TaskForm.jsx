@@ -61,7 +61,7 @@ const TaskForm = () => {
         validationSchema={addSchema}
       >
         {({ errors, touched }) => (
-          <Form className="flex flex-col justify-center bg-zinc-800 max-w-sm p-4 mx-auto mt-[10%]">
+          <Form className="flex flex-col justify-center bg-gray-100 drop-shadow-lg dark:bg-neutral-800 max-w-sm p-4 mx-auto mt-[10%]">
             <div className="flex">
               <label
                 htmlFor="title"
@@ -75,7 +75,7 @@ const TaskForm = () => {
             </div>
             <Field
               name={"title"}
-              className="w-full p-2 rounded-md bg-zinc-600 mb-2"
+              className="w-full p-2 rounded-md bg-zinc-200 drop-shadow-lg dark:bg-zinc-600 mb-2"
             />
             {errors.title && touched.title && <div className="text-red-600">{errors.title}</div>}
             <label
@@ -87,7 +87,7 @@ const TaskForm = () => {
             <Field
               name={"description"}
               as={"textarea"}
-              className="w-full p-2 rounded-md bg-zinc-600 mb-2"
+              className="w-full p-2 rounded-md bg-zinc-200 drop-shadow-lg dark:bg-zinc-600 mb-2"
             />
             {errors.description && touched.description && (
               <div className="text-red-600">{errors.description}</div>
@@ -95,7 +95,7 @@ const TaskForm = () => {
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="bg-indigo-600 w-20 px-1 py-2 rounded-md mt-4"
+                className="bg-gray-400 drop-shadow-lg dark:bg-indigo-600 w-20 px-1 py-2 rounded-md mt-4"
               >
                 Save
               </button>
