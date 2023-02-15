@@ -24,7 +24,7 @@ const TasksList = () => {
                 
               </div>
             </header>
-            <div className="break-words overflow-hidden h-10 hover:h-auto"><p>{task.description}</p></div>
+            <div className="break-words overflow-hidden h-6 hover:h-auto"><p>{task.description}</p></div>
           </div>
         ))}
       </div>
