@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 const useTheme = () => {
   const [theme, setTheme] = useState(localStorage.themeSelected ? localStorage.themeSelected : "light");
 
-    // ---- IMPORTANTE!!! EN tailwind.config AGREGAR A module.exports = { darkMode: 'class', content...} ---- //
-
   const handleThemeButton = () => {
     if (theme === "dark") {
       setTheme("light");

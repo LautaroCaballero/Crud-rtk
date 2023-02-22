@@ -10,7 +10,6 @@ export const taskSlice = createSlice({
   reducers: {
     addTask: (state, action) => {
       state.push(action.payload);
-
       setLsitem(state);
     },
     deleteTask: (state, action) => {
@@ -29,8 +28,16 @@ export const taskSlice = createSlice({
         setLsitem(state);
       }
     },
+    completeTask: (state, action) => {
+      const { id, isCompleted } = action.payload;
+      const taskFoundComplete = state.find((task) => task.id === id);
+      if (taskFoundComplete) {
+        taskFoundComplete.isCompleted = !isCompleted
+        setLsitem(state);
+      }
+    },
   },
 });
 
-export const { addTask, deleteTask, editTask } = taskSlice.actions;
+export const { addTask, deleteTask, editTask, completeTask } = taskSlice.actions;
 export default taskSlice.reducer;
