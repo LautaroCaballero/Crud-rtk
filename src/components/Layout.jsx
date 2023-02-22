@@ -13,7 +13,7 @@ export default function Layout() {
 
   return (
     <div className="bg-gray-200 dark:bg-zinc-900">
-      <div className="max-w-[80%] h-screen text-black dark:text-white mx-auto">
+      <div className="max-w-[80%] min-h-screen text-black dark:text-white mx-auto">
         <Header />
         <div>
           <Outlet />
